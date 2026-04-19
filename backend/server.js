@@ -10,7 +10,7 @@ const app = express();
 connectDB();
 
 // Middleware
-app.use(cors({ origin: ['http://localhost:3000', 'https://frontend-psi-olive-56.vercel.app', 'https://frontend-392ae0p31-mark-daryls-projects.vercel.app'], credentials: true }));
+app.use(cors({ origin: ['http://localhost:3000', 'https://frontend-psi-olive-56.vercel.app', 'https://frontend-392ae0p31-mark-daryls-projects.vercel.app', 'https://frontend-nt3q09bgb-mark-daryls-projects.vercel.app/'], credentials: true }));
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
