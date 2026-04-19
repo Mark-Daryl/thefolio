@@ -1,0 +1,565 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =====================================================
+   THEFOLIO BLOG - ADD THESE STYLES
+===================================================== */
+
+/* Container Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* =====================================================
+   BLOG POST CARDS
+===================================================== */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.post-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-soft);
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-strong);
+}
+
+.post-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-top: 0;
+  border-radius: 0;
+}
+
+.post-card-content {
+  padding: 1.5rem;
+}
+
+.post-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-card h3 a {
+  color: var(--text-main);
+  transition: color 0.3s ease;
+}
+
+.post-card h3 a:hover {
+  color: var(--accent);
+}
+
+.post-meta {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.author-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post-excerpt {
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.read-more {
+  color: var(--accent);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.read-more:hover {
+  gap: 0.8rem;
+}
+
+/* =====================================================
+   SINGLE POST PAGE
+===================================================== */
+.post-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.post-header h1 {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.post-featured-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  margin: 1rem 0;
+}
+
+.post-body {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 2rem 0;
+}
+
+.post-actions {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+.btn-edit, .btn-delete {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.btn-delete {
+  background: linear-gradient(135deg, var(--danger), #c1121f);
+  color: white;
+}
+
+/* =====================================================
+   COMMENTS SECTION
+===================================================== */
+.comments-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border-soft);
+}
+
+.comments-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+.comment {
+  background: var(--bg-surface);
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.comment-author {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.comment-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.comment-body {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+}
+
+.comment-actions {
+  margin-top: 0.5rem;
+}
+
+.delete-comment-btn {
+  padding: 0.3rem 1rem;
+  font-size: 0.8rem;
+  background: var(--danger);
+  color: white;
+}
+
+.comment-form {
+  margin-top: 2rem;
+  background: var(--bg-surface);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  min-height: 100px;
+}
+
+/* =====================================================
+   PROFILE PAGE
+===================================================== */
+.profile-page {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-pic-preview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  margin-bottom: 1rem;
+}
+
+.profile-section {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.profile-section h3 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+/* =====================================================
+   ADMIN DASHBOARD
+===================================================== */
+.admin-page {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 1rem;
+}
+
+.admin-tabs button {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-strong);
+  margin-top: 0;
+}
+
+.admin-tabs button.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+  color: black;
+  border-color: var(--accent);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.admin-table th {
+  background: var(--bg-surface);
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-badge.active {
+  background: #4caf50;
+  color: white;
+}
+
+.status-badge.inactive {
+  background: var(--danger);
+  color: white;
+}
+
+.status-badge.published {
+  background: #4caf50;
+  color: white;
+}
+
+.status-badge.removed {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--danger), #c1121f);
+  color: white;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: white;
+}
+
+/* =====================================================
+   AUTH PAGES (Login/Register)
+===================================================== */
+.login-page,
+.register-page {
+  max-width: 450px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.login-page h2,
+.register-page h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.error-msg,
+.success-msg {
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.error-msg {
+  background: rgba(230, 57, 70, 0.2);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.success-msg {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+  border: 1px solid #4caf50;
+}
+
+/* =====================================================
+   CREATE/EDIT POST PAGE
+===================================================== */
+.create-post-page,
+.edit-post-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.create-post-page h2,
+.edit-post-page h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* =====================================================
+   LOADING STATES
+===================================================== */
+.loading-spinner {
+  text-align: center;
+  padding: 3rem;
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.loading-spinner::after {
+  content: "...";
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: "."; }
+  40% { content: ".."; }
+  60%, 100% { content: "..."; }
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .post-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  section {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .admin-table {
+    font-size: 0.8rem;
+  }
+  
+  .admin-table th,
+  .admin-table td {
+    padding: 0.5rem;
+  }
+  
+  .admin-tabs {
+    flex-direction: column;
+  }
+}
+
+/* =====================================================
+   UTILITY CLASSES
+===================================================== */
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* =====================================================
+   THEME TOGGLE BUTTON
+===================================================== */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  padding: 0.5rem 1rem;
+  margin-top: 0;
+  font-size: 0.9rem;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+}
+
+.empty-state p {
+  margin-bottom: 1rem;
+}
+
+/* =====================================================
+   IMAGE UPLOAD PREVIEW
+===================================================== */
+.image-preview {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.image-preview img {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}

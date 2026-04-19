@@ -1,0 +1,12 @@
+echo { > vercel.json
+echo   "builds": [ >> vercel.json
+echo     { >> vercel.json
+echo       "src": "package.json", >> vercel.json
+echo       "use": "@vercel/static-build", >> vercel.json
+echo       "config": { "distDir": "build" } >> vercel.json
+echo     } >> vercel.json
+echo   ], >> vercel.json
+echo   "routes": [ >> vercel.json
+echo     { "src": "/(.*)", "dest": "/$1" } >> vercel.json
+echo   ] >> vercel.json
+echo } >> vercel.json
