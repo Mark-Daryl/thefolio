@@ -10,14 +10,7 @@ const app = express();
 connectDB();
 
 // Middleware
-const allowedOrigins = ['http://localhost:3000', 'https://frontend-psi-olive-56.vercel.app'];
-app.use(cors({ origin: (origin, callback) => {
-  if (!origin || allowedOrigins.includes(origin)) {
-    callback(null, true);
-  } else {
-    callback(new Error('Not allowed by CORS'));
-  }
-}, credentials: true }));
+app.use(cors({ origin: ['http://localhost:3000', 'https://frontend-psi-olive-56.vercel.app'], credentials: true }));
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -29,7 +22,6 @@ app.use('/api/admin', require('./routes/admin.routes'));
 app.use('/api/contact', contactRoutes);
 app.use('/api/password', passwordRoutes);
 
+// This is the CORRECT way for Render
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
