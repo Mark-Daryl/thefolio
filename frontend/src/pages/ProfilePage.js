@@ -59,15 +59,15 @@ const ProfilePage = () => {
     }
   };
 
-  const picSrc = user?.profilePic && !picPreview
-    ? `http://localhost:5000/uploads/${user.profilePic}`
-    : picPreview || '/default-avatar.png';
+  const picSrc = user?.profilePic 
+  ? `${process.env.REACT_APP_API_URL?.replace('/api', '')}/uploads/${user.profilePic}`
+  : '/default-avatar.png';
 
   return (
     <div className="container">
       <div className="profile-page">
         <div className="profile-header">
-          <img src={picSrc} alt="Profile" className="profile-pic-preview" />
+          <img src={picPreview || picSrc} alt="Profile" className="profile-pic-preview" />
           <h2>{user?.name}</h2>
           <p style={{ color: 'var(--text-muted)' }}>{user?.email}</p>
           <p style={{ color: 'var(--accent)' }}>Role: {user?.role}</p>

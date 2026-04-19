@@ -148,11 +148,11 @@ const PostPage = () => {
 
           {post.image && (
             <img 
-              src={`http://localhost:5000/uploads/${post.image}`} 
-              alt={post.title}
-              className="post-featured-image"
+                src={`${process.env.REACT_APP_API_URL?.replace('/api', '')}/uploads/${post.image}`} 
+                alt={post.title}
+                className="post-featured-image"
             />
-          )}
+            )}
 
           <div className="post-body">
             {post.body.split('\n').map((paragraph, i) => (

@@ -119,7 +119,7 @@ const AdminPage = () => {
                         <td>
                           {u.profilePic ? (
                             <img 
-                              src={`http://localhost:5000/uploads/${u.profilePic}`}
+                              src={`${process.env.REACT_APP_API_URL?.replace('/api', '')}/uploads/${u.profilePic}`}
                               alt={u.name}
                               className="author-avatar"
                               style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }}
@@ -202,7 +202,7 @@ const AdminPage = () => {
                         <td>
                           {p.image ? (
                             <img 
-                              src={`http://localhost:5000/uploads/${p.image}`}
+                              src={`${process.env.REACT_APP_API_URL?.replace('/api', '')}/uploads/${p.image}`}
                               alt={p.title}
                               style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '8px' }}
                             />

@@ -90,13 +90,9 @@ function HomePage() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'center' }}>
               {featuredPost.image && (
                 <img 
-                  src={`http://localhost:5000/uploads/${featuredPost.image}`} 
+                  src={`${process.env.REACT_APP_API_URL?.replace('/api', '')}/uploads/${featuredPost.image}`} 
                   alt={featuredPost.title}
-                  style={{
-                    width: '100%',
-                    borderRadius: '12px',
-                    boxShadow: 'var(--shadow-strong)'
-                  }}
+                  className="post-card-image"
                 />
               )}
               <div>
