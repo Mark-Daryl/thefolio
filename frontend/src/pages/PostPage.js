@@ -1,5 +1,5 @@
 // src/pages/PostPage.js
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import API from '../api/axios';
@@ -17,12 +17,7 @@ const PostPage = () => {
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  useEffect(() => {
-    fetchPost();
-    fetchComments();
-  }, [id]);
-
-  const fetchPost = async () => {
+  const fetchPost = useCallback(async () => {
     try {
       const { data } = await API.get(`/posts/${id}`);
       setPost(data);
@@ -31,16 +26,21 @@ const PostPage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
 
-  const fetchComments = async () => {
+  const fetchComments = useCallback(async () => {
     try {
       const { data } = await API.get(`/comments/${id}`);
       setComments(data);
     } catch (err) {
       console.error('Error fetching comments:', err);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    fetchPost();
+    fetchComments();
+  }, [fetchPost, fetchComments]);
 
   const handleComment = async (e) => {
     e.preventDefault();
